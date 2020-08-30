@@ -20,9 +20,6 @@ Route::namespace('Api\V1\Auth')->prefix('api/v1')->middleware('json.api')->group
     Route::post('/logout', 'LogoutController')->middleware('auth:api');
     Route::post('/password-forgot', 'ForgotPasswordController');
     Route::post('/password-reset', 'ResetPasswordController');
-    Route::get('/user/{id}', function ($id) {
-        return 'User '.$id;
-    });
 });
 
 JsonApi::register('v1')->middleware('auth:api')->routes(function ($api) {
