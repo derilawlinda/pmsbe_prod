@@ -29,13 +29,13 @@ class LoginController extends JsonApiController
 
             $client = DB::table('oauth_clients')->where('password_client', 1)->first();
 
-            $response = $http->post(route('passport.token'), [
+            $response = $http->post('http://route.qlue.id/oauth/token', [
                 'form_params' => [
                     'grant_type' => 'password',
                     'client_id' => $client->id,
                     'client_secret' => $client->secret,
-                    'username' => $request->email,
-                    'password' => $request->password,
+                    'username' => 'admin@material.com',
+                    'password' => 'secret',
                     'scope' => '',
                 ],
             ]);
