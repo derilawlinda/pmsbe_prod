@@ -11,4 +11,4 @@
 |
 */
 
-Route::get('/', 'welcome');
+Route::view('/', 'welcome');
