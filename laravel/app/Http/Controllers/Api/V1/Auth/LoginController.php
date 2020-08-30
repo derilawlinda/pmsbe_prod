@@ -25,11 +25,11 @@ class LoginController extends JsonApiController
         try {
             // TODO: This should be removed in production since it is a security measure
             // Without this it crashes on local development
-            $http = new Client(['verify' => false]);
+           // $http = new Client(['verify' => false]);
 
             $client = DB::table('oauth_clients')->where('password_client', 1)->first();
 
-            $response = $http->post(route('passport.token'), [
+            $response = Http::post(route('passport.token'), [
                 'form_params' => [
                     'grant_type' => 'password',
                     'client_id' => $client->id,
